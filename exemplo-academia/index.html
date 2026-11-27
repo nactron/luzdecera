@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Academia Força Total · Site de exemplo</title>
+<meta name="description" content="Site de exemplo de academia: planos, horários e matrícula pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0e0d;--bg2:#181614;--card:#1f1c19;--line:#2e2a25;--gold:#c9a25a;--gold2:#e6c584;--txt:#f3eee6;--mut:#a89f93;--wa:#25d366}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.brand{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-spacing:.5px}
+/* faixa demo */
+.demo{background:var(--gold);color:#1a140a;font-size:13.5px;font-weight:600;text-align:center;padding:9px 14px}
+.demo a{font-weight:800}
+/* topo */
+.nav{position:sticky;top:0;z-index:20;background:rgba(15,14,13,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700;white-space:nowrap}
+.brand svg{width:30px;height:30px}
+.nav-links{display:none;gap:26px;font-size:14px;color:var(--mut)}
+.nav-links a{text-decoration:none}.nav-links a:hover{color:var(--gold2)}
+.nav .mini{background:var(--wa);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:9px 14px;border-radius:30px;display:flex;align-items:center;gap:6px}
+.nav .mini svg{width:16px;height:16px}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:64px 0 70px;background:
+radial-gradient(circle at 85% 15%,rgba(201,162,90,.22),transparent 45%),
+repeating-linear-gradient(135deg,#141210 0 18px,#171513 18px 36px)}
+.hero .poste{position:absolute;right:-10px;top:30px;width:70px;height:260px;border-radius:36px;background:repeating-linear-gradient(160deg,#b8322a 0 22px,#f3eee6 22px 44px,#24407a 44px 66px,#f3eee6 66px 88px);opacity:.18;transform:rotate(8deg)}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold2);font-size:12.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:18px}
+.hero h1{font-size:clamp(40px,11vw,76px);line-height:1;font-weight:700;margin-bottom:16px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--mut);font-size:17.5px;max-width:520px;margin-bottom:28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:700;font-size:16.5px;padding:16px 24px;border-radius:12px;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 28px rgba(37,211,102,.3)}
+.btn-out{border:1.5px solid var(--line);color:var(--txt)}
+.stats{display:flex;gap:28px;margin-top:38px;flex-wrap:wrap}
+.stats div b{display:block;font-family:Oswald,sans-serif;font-size:28px;color:var(--gold2)}
+.stats div span{font-size:13px;color:var(--mut)}
+section{padding:64px 0}
+.sec-h{text-align:center;margin-bottom:34px}
+.sec-h small{color:var(--gold);font-weight:700;letter-spacing:2.5px;font-size:12.5px;text-transform:uppercase}
+.sec-h h2{font-size:clamp(30px,8vw,44px);margin-top:6px}
+/* serviços */
+.serv{display:grid;gap:14px}
+.s{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.s .ic{flex:0 0 52px;height:52px;border-radius:14px;background:rgba(201,162,90,.12);display:flex;align-items:center;justify-content:center}
+.s .ic svg{width:26px;height:26px;stroke:var(--gold2)}
+.s h3{font-size:19px;font-weight:500}
+.s p{font-size:14px;color:var(--mut)}
+.s .pr{margin-left:auto;text-align:right;font-family:Oswald,sans-serif;font-size:22px;color:var(--gold2);white-space:nowrap}
+.s .pr small{display:block;font-family:Inter;font-size:12px;color:var(--mut)}
+.combo{margin-top:14px;background:linear-gradient(135deg,#2a2118,#1f1c19);border:1.5px solid var(--gold);border-radius:16px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.combo b{font-family:Oswald,sans-serif;font-size:22px;text-transform:uppercase}
+.combo p{color:var(--mut);font-size:14px}
+.combo .pr{font-family:Oswald,sans-serif;font-size:30px;color:var(--gold2)}
+.combo .pr s{font-size:17px;color:var(--mut);margin-right:6px}
+/* galeria */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g{aspect-ratio:4/5;border-radius:16px;position:relative;overflow:hidden;border:1px solid var(--line);display:flex;align-items:flex-end;padding:14px}
+.g span{position:relative;z-index:2;font-family:Oswald,sans-serif;text-transform:uppercase;font-size:17px}
+.g svg{position:absolute;inset:0;margin:auto;width:46%;height:46%;opacity:.28}
+.g1{background:linear-gradient(160deg,#3a2c1c,#151311)}.g2{background:linear-gradient(160deg,#202838,#121316)}
+.g3{background:linear-gradient(160deg,#2c1d1d,#141212)}.g4{background:linear-gradient(160deg,#24291f,#121411)}
+.g::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.6))}
+.gal-n{text-align:center;color:var(--mut);font-size:13px;margin-top:12px}
+/* diferenciais */
+.dif{display:grid;gap:14px}
+.d{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:20px}
+.d h3{font-size:18px;font-weight:500;color:var(--gold2);margin-bottom:4px}
+.d p{color:var(--mut);font-size:14.5px}
+/* horário e local */
+.info{display:grid;gap:14px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.box h3{font-size:20px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.box h3 svg{width:20px;height:20px;stroke:var(--gold)}
+.hr{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.hr:last-child{border:0}.hr b{font-weight:600}.hr .off{color:#e07a6b}
+.mapa{margin-top:14px;height:150px;border-radius:12px;background:
+linear-gradient(90deg,transparent 48%,#2e2a25 48% 52%,transparent 52%),
+linear-gradient(0deg,transparent 46%,#2e2a25 46% 54%,transparent 54%),
+linear-gradient(35deg,transparent 60%,#29251f 60% 63%,transparent 63%),#1a1816;position:relative}
+.mapa i{position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-26px 0 0 -13px;background:var(--gold);border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 6px 14px rgba(0,0,0,.5)}
+.box p{color:var(--mut);font-size:15px}
+/* cta final */
+.final{text-align:center;background:linear-gradient(180deg,var(--bg),#1b160f);border-top:1px solid var(--line)}
+.final h2{font-size:clamp(30px,8vw,46px);margin-bottom:10px}
+.final p{color:var(--mut);margin-bottom:24px}
+.final .btn{width:100%;max-width:420px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:26px 20px 90px;border-top:1px solid var(--line)}
+footer a{color:var(--gold2);font-weight:600}
+/* botão flutuante */
+.fab{position:fixed;right:16px;bottom:18px;z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.45);animation:pul 2.2s infinite}
+.fab svg{width:32px;height:32px}
+@keyframes pul{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5),0 10px 26px rgba(0,0,0,.45)}60%{box-shadow:0 0 0 14px rgba(37,211,102,0),0 10px 26px rgba(0,0,0,.45)}}
+@media(min-width:760px){
+.nav-links{display:flex}.serv{grid-template-columns:1fr 1fr}.gal{grid-template-columns:repeat(4,1fr)}
+.dif{grid-template-columns:repeat(3,1fr)}.info{grid-template-columns:1fr 1fr}.hero{padding:100px 0}.hero .poste{opacity:.3;right:60px}}
+@media(prefers-reduced-motion:reduce){.fab{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="hal" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/></symbol>
+<symbol id="wa" viewBox="0 0 24 24"><path fill="#fff" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.04c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.1-1.47-1.1-2.8 0-1.33.7-1.99.95-2.26.24-.27.53-.34.71-.34h.51c.16 0 .38-.06.6.46.23.54.77 1.87.84 2 .07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.28-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34z"/></symbol>
+<symbol id="tes" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></symbol>
+<symbol id="nav" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 17l9-9 3 3-9 9H3z"/><path d="M14 6l2-2 4 4-2 2"/></symbol>
+<symbol id="bar" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M7 3c-2 4-2 8 0 12M12 3c-1 4-1 8 0 12M17 3c-2 4-2 8 0 12"/><path d="M5 19h14"/></symbol>
+<symbol id="star" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+</defs></svg>
+
+<div class="demo">Este é um <b>site de exemplo</b>. Quer um assim para o seu negócio? <a href="#" data-wa>Fale comigo no WhatsApp →</a></div>
+
+<nav class="nav"><div class="wrap">
+<div class="brand"><svg viewBox="0 0 24 24" stroke="#c9a25a"><use href="#hal"/></svg>Força Total</div>
+<div class="nav-links"><a href="#servicos">Serviços</a><a href="#galeria">Galeria</a><a href="#horarios">Horários</a></div>
+<a class="mini" href="#" data-wa><svg><use href="#wa"/></svg>Matrícula</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+<span class="tag">Academia · Desde 2018</span>
+<h1>Treine forte,<br><span>perto de casa.</span></h1>
+<p>Musculação, funcional e aulas coletivas em ambiente climatizado. Agende sua aula experimental grátis pelo WhatsApp em menos de 1 minuto.</p>
+<div class="btns">
+<a class="btn btn-wa" href="#" data-wa><svg><use href="#wa"/></svg>Aula experimental grátis</a>
+<a class="btn btn-out" href="#servicos">Ver planos</a>
+</div>
+<div class="stats"><div><b>+80</b><span>aparelhos</span></div><div><b>5h–22h</b><span>seg a sex</span></div><div><b>Pix</b><span>e cartão</span></div></div>
+</div></header>
+
+<section id="servicos"><div class="wrap">
+<div class="sec-h"><small>Planos</small><h2>Escolha seu plano</h2></div>
+<div class="serv">
+<div class="s"><div class="ic"><svg><use href="#hal"/></svg></div><div><h3>Mensal</h3><p>Musculação + aulas coletivas</p></div><div class="pr">R$119<small>por mês</small></div></div>
+<div class="s"><div class="ic"><svg><use href="#nav"/></svg></div><div><h3>Trimestral</h3><p>Tudo do mensal, mais barato</p></div><div class="pr">R$99<small>por mês</small></div></div>
+<div class="s"><div class="ic"><svg><use href="#bar"/></svg></div><div><h3>Funcional</h3><p>Turmas de 45 min</p></div><div class="pr">R$89<small>por mês</small></div></div>
+<div class="s"><div class="ic"><svg><use href="#star"/></svg></div><div><h3>Avaliação física</h3><p>Bioimpedância + treino</p></div><div class="pr">R$50<small>única</small></div></div>
+</div>
+<div class="combo"><div><b>Plano anual</b><p>O mais escolhido · matrícula grátis</p></div><div class="pr"><s>R$119</s>R$89/mês</div></div>
+</div></section>
+
+<section id="galeria" style="background:var(--bg2)"><div class="wrap">
+<div class="sec-h"><small>Nossa estrutura</small><h2>Galeria</h2></div>
+<div class="gal">
+<div class="g g1"><svg stroke="#e6c584"><use href="#hal"/></svg><span>Musculação</span></div>
+<div class="g g2"><svg stroke="#e6c584"><use href="#nav"/></svg><span>Funcional</span></div>
+<div class="g g3"><svg stroke="#e6c584"><use href="#bar"/></svg><span>Cardio</span></div>
+<div class="g g4"><svg stroke="#e6c584"><use href="#star"/></svg><span>Aulas</span></div>
+</div>
+<p class="gal-n">No site da sua academia, aqui entram as fotos reais da estrutura.</p>
+</div></section>
+
+<section><div class="wrap">
+<div class="sec-h"><small>Por que a gente</small><h2>Diferenciais</h2></div>
+<div class="dif">
+<div class="d"><h3>Professores no salão</h3><p>Acompanhamento em todos os horários, do iniciante ao avançado.</p></div>
+<div class="d"><h3>Climatizada</h3><p>Ar-condicionado em todo o espaço, vestiário e estacionamento.</p></div>
+<div class="d"><h3>Treino personalizado</h3><p>Ficha montada a partir da sua avaliação e do seu objetivo.</p></div>
+</div>
+</div></section>
+
+<section id="horarios" style="background:var(--bg2)"><div class="wrap">
+<div class="info">
+<div class="box"><h3><svg><use href="#clock"/></svg>Horários</h3>
+<div class="hr"><b>Segunda a sexta</b><span>5h às 22h</span></div>
+<div class="hr"><b>Sábado</b><span>8h às 12h</span></div>
+<div class="hr"><b>Domingo</b><span class="off">Fechado</span></div>
+</div>
+<div class="box"><h3><svg><use href="#pin"/></svg>Onde estamos</h3>
+<p>Rua do Exemplo, 123 · Centro<br>Estacionamento na rua</p>
+<div class="mapa"><i></i></div>
+</div>
+</div>
+</div></section>
+
+<section class="final"><div class="wrap">
+<h2>Bora começar hoje?</h2>
+<p>Agende sua aula experimental grátis e conheça a academia.</p>
+<a class="btn btn-wa" href="#" data-wa><svg><use href="#wa"/></svg>Quero minha aula grátis</a>
+</div></section>
+
+<footer>Academia Força Total é um negócio fictício, usado só como exemplo.<br>Site criado por <a href="#" data-wa>Wesley Vinicius</a> · Quer um site assim? Chama no WhatsApp.</footer>
+
+<a class="fab" href="#" data-wa aria-label="Falar no WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script>
+var WA="5511942678105";
+var MSG="Oi Wesley! Vi o site de exemplo da academia e quero um site assim para o meu negócio.";
+var url="https://wa.me/"+WA+"?text="+encodeURIComponent(MSG);
+document.querySelectorAll("[data-wa]").forEach(function(a){a.href=url;a.target="_blank";a.rel="noopener";});
+</script>
+</body>
+</html>
